@@ -47,3 +47,11 @@ print (frs3.isalpha())
 
 #metodo .isdigit() retorna se tem apenas numeros
 print (frs3.isdigit())
+
+#metodo .strip() deleta os espaços do começo e do fim 
+senha = " asda  adsasda                        "
+print (senha.strip())
+
+#encadeamento de metodos = voce pode usar varios metodos em ordem para corrigir um frase
+frs4 = "  AD PRo raTo NÂo fuNcIONA Des de semPRE   "
+print (frs4.strip().lower().capitalize())
