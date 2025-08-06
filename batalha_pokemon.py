@@ -1,9 +1,9 @@
 import random
 
 pokemons = {
-    'charmander':{'ataque': 'bola de fogo','dano':35},
-    'squirtle':{'ataque': 'jatada','dano': 32},
-    'bulbaconha':{'ataque':'brisa torta','dano':30},
+    'charmander':{'ataque': 'bola de fogo','Dano':35},
+    'squirtle':{'ataque': 'jatada','Dano': 32},
+    'bulbaconha':{'ataque':'brisa torta','Dano':30},
 }
 
 jogador1 = ''
@@ -34,21 +34,29 @@ print (f'o jogador2 escolhe {escolha2}')
 
 def ficha_habilidades(jogador) :
     print("FICHA HABILIDADES".center(40,"*"))
-    print(f'vida = 100|ataque = {pokemons[jogador]['ataque']}|dano = {pokemons[jogador]['dano']}')
+    print(f'vida = 100|ataque = {pokemons[jogador]['ataque']}|dano = {pokemons[jogador]['Dano']}')
     
 ficha_habilidades(escolha1)
 ficha_habilidades(escolha2)
 
-def ataque(jogador):
-    print(f'o dano de {jogador} foi de {pokemons[jogador]['dano']*random.uniform(1,2):.2f}')
+def ataque(escolha):
+    return pokemons[escolha]['Dano']*random.uniform(1,2)
+
+dano1 = ataque(escolha1)
+dano2 = ataque(escolha2)
+
+print(f'o dano de {jogador1} foi de {pokemons[escolha1]['Dano']*random.uniform(1,2):.2f}')
+print(f'o dano de {jogador2} foi de {pokemons[escolha2]['Dano']*random.uniform(1,2):.2f}')
 
 ataque(escolha1)
 ataque(escolha2)
 
 def batalha():
-    vida1 = 100 - ataque(escolha2)
-    vida2 = 100 - ataque(escolha1)
+    vida1 = 100 - dano2
+    vida2 = 100 - dano1
     if vida1 > vida2 :
         print(f'o vencedor foi {escolha1} pois {escolha2} ficou com menos vida')
     else:
         print(f'o vencedor foi {escolha2} pois {escolha1} ficou com menos vida')
+
+batalha()
