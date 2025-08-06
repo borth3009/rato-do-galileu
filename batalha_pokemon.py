@@ -1,4 +1,4 @@
-
+import random
 
 pokemons = {
     'charmander':{'ataque': 'bola de fogo','dano':35},
@@ -17,9 +17,9 @@ def selecionar_pokemon(jogador) :
     if escolha == 1:
         escolha = 'charmander'
     elif escolha == 2:
-        escolha = 'squirtale'
+        escolha = 'squirtle'
     elif escolha == 3:
-        escolha = 'bubaconha'
+        escolha = 'bulbaconha'
     else :
         print ('olha a pergunta retardado')
     
@@ -30,3 +30,25 @@ escolha2 = selecionar_pokemon(jogador2)
 
 print (f'o jogador1 escolhe {escolha1}')
 print (f'o jogador2 escolhe {escolha2}')
+
+
+def ficha_habilidades(jogador) :
+    print("FICHA HABILIDADES".center(40,"*"))
+    print(f'vida = 100|ataque = {pokemons[jogador]['ataque']}|dano = {pokemons[jogador]['dano']}')
+    
+ficha_habilidades(escolha1)
+ficha_habilidades(escolha2)
+
+def ataque(jogador):
+    print(f'o dano de {jogador} foi de {pokemons[jogador]['dano']*random.uniform(1,2):.2f}')
+
+ataque(escolha1)
+ataque(escolha2)
+
+def batalha():
+    vida1 = 100 - ataque(escolha2)
+    vida2 = 100 - ataque(escolha1)
+    if vida1 > vida2 :
+        print(f'o vencedor foi {escolha1} pois {escolha2} ficou com menos vida')
+    else:
+        print(f'o vencedor foi {escolha2} pois {escolha1} ficou com menos vida')
